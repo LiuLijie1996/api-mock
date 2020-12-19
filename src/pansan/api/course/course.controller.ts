@@ -6,6 +6,11 @@ export class CourseController {
   // 最新课程
   @All('courseList')
   index1(@Response() res, @Body() body, @Query() query) {
+    console.log({
+      ...query,
+      ...body,
+    });
+
     setTimeout(() => {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/course/courseList',

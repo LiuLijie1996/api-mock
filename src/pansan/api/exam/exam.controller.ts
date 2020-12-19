@@ -1,11 +1,4 @@
-import {
-  All,
-  Body,
-  Controller,
-  Query,
-  Request,
-  Response,
-} from '@nestjs/common';
+import { All, Body, Controller, Query, Response } from '@nestjs/common';
 import * as request from 'request';
 
 @Controller('api/exam')
@@ -73,7 +66,7 @@ export class ExamController {
           res.send(body);
         }
       });
-    }, 2000);
+    });
   }
 
   // 考试考题
