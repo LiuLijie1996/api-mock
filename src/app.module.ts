@@ -1,11 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ApiModule } from './pansan/api/api.module';
-import { AdminModule } from './pansan/admin/admin.module';
+import { PansanAppModule } from './pansan-app/pansan-app.module';
 
 @Module({
-  imports: [ApiModule, AdminModule],
+  imports: [PansanAppModule],
   controllers: [AppController],
   providers: [AppService],
 })
