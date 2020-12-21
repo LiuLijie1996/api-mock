@@ -1,3 +1,4 @@
+import common from '../common';
 import { All, Body, Controller, Query, Response } from '@nestjs/common';
 import * as request from 'request';
 
@@ -24,7 +25,7 @@ export class ExerciseController {
           res.send(body);
         }
       });
-    }, 2000);
+    }, common.millisecond);
   }
   // 练习详情
   @All('getOnePractice')
@@ -47,6 +48,6 @@ export class ExerciseController {
           res.send(body);
         }
       });
-    }, 2000);
+    }, common.millisecond);
   }
 }

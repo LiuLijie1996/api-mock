@@ -1,8 +1,16 @@
-import { All, Body, Controller, Query, Response } from '@nestjs/common';
+import common from '../common';
+import { All, Body, Controller, Post, Query, Response } from '@nestjs/common';
 import * as request from 'request';
 
 @Controller('pansanApp/api/index')
 export class IndexController {
+  @Post()
+  index(@Body() body, @Query() query) {
+    console.log({ ...body, ...query });
+
+    return { ...body, ...query };
+  }
+
   // 轮播图
   @All('banner')
   index1(@Response() res, @Body() body, @Query() query) {
@@ -22,6 +30,6 @@ export class IndexController {
           res.send(body);
         }
       });
-    }, 2000);
+    }, common.millisecond);
   }
 }

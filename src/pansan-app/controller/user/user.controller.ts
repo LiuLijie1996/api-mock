@@ -1,3 +1,4 @@
+import common from '../common';
 import { All, Body, Controller, Query, Response } from '@nestjs/common';
 import * as request from 'request';
 
@@ -22,7 +23,7 @@ export class UserController {
           res.send(body);
         }
       });
-    }, 2000);
+    }, common.millisecond);
   }
 
   // 职工服务
@@ -44,6 +45,6 @@ export class UserController {
           res.send(body);
         }
       });
-    }, 2000);
+    }, common.millisecond);
   }
 }

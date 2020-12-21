@@ -1,3 +1,4 @@
+import common from '../common';
 import { All, Body, Controller, Query, Response } from '@nestjs/common';
 import * as request from 'request';
 
@@ -27,7 +28,7 @@ export class CourseController {
           res.send(body);
         }
       });
-    }, 2000);
+    }, common.millisecond);
   }
   // 课程分类导航
   @All('getCourseItemList')
@@ -48,6 +49,6 @@ export class CourseController {
           res.send(body);
         }
       });
-    }, 2000);
+    }, common.millisecond);
   }
 }

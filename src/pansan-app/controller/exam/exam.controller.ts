@@ -1,3 +1,4 @@
+import common from '../common';
 import { All, Body, Controller, Query, Response } from '@nestjs/common';
 import * as request from 'request';
 
@@ -22,7 +23,7 @@ export class ExamController {
           res.send(body);
         }
       });
-    }, 2000);
+    }, common.millisecond);
   }
 
   // 我要考试分类
@@ -44,7 +45,7 @@ export class ExamController {
           res.send(body);
         }
       });
-    }, 2000);
+    }, common.millisecond);
   }
 
   // 我要练习分类
@@ -66,7 +67,7 @@ export class ExamController {
           res.send(body);
         }
       });
-    });
+    }, common.millisecond);
   }
 
   // 考试考题
@@ -90,8 +91,9 @@ export class ExamController {
           res.send(body);
         }
       });
-    }, 2000);
+    }, common.millisecond);
   }
+
   // 考试考题
   @All('getTestList')
   index5(@Response() res, @Body() body, @Query() query) {
@@ -111,6 +113,31 @@ export class ExamController {
           res.send(body);
         }
       });
-    }, 2000);
+    }, common.millisecond);
+  }
+
+  // 考试结束提交试卷
+  @All('saveUserTest')
+  index6(@Response() res, @Body() body, @Query() query) {
+    console.log({ ...body, ...query });
+
+    // setTimeout(() => {
+    //   let options = {
+    //     url: 'http://192.168.0.8:88/index.php/v2/test/saveUserTest',
+    //     method: 'post',
+    //     form: {
+    //       ...query,
+    //       ...body,
+    //     },
+    //   };
+    //   request(options, (err, req, body) => {
+    //     try {
+    //       res.send(JSON.parse(body));
+    //     } catch (error) {
+    //       res.send(body);
+    //     }
+    //   });
+    // }, common.millisecond);
+    res.send({ code: 200 });
   }
 }
