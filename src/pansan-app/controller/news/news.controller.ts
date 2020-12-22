@@ -123,4 +123,28 @@ export class NewsController {
       });
     }, common.millisecond);
   }
+
+  // 新闻点赞
+  @All('saveUserUpvote')
+  index6(@Response() res, @Body() body, @Query() query) {
+    console.log('新闻点赞');
+
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/news/saveUserUpvote',
+        method: 'post',
+        form: {
+          ...body,
+          ...query,
+        },
+      };
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
 }

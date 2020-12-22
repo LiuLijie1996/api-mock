@@ -38,6 +38,7 @@ export class ExamController {
           ...query,
         },
       };
+
       request(options, (err, req, body) => {
         try {
           res.send(JSON.parse(body));
@@ -121,23 +122,23 @@ export class ExamController {
   index6(@Response() res, @Body() body, @Query() query) {
     console.log({ ...body, ...query });
 
-    // setTimeout(() => {
-    //   let options = {
-    //     url: 'http://192.168.0.8:88/index.php/v2/test/saveUserTest',
-    //     method: 'post',
-    //     form: {
-    //       ...query,
-    //       ...body,
-    //     },
-    //   };
-    //   request(options, (err, req, body) => {
-    //     try {
-    //       res.send(JSON.parse(body));
-    //     } catch (error) {
-    //       res.send(body);
-    //     }
-    //   });
-    // }, common.millisecond);
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/test/saveUserTest',
+        method: 'post',
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
     res.send({ code: 200 });
   }
 }
