@@ -51,4 +51,25 @@ export class CourseController {
       });
     }, common.millisecond);
   }
+  // 课程详情
+  @All('courseDetail')
+  index3(@Response() res, @Body() body, @Query() query) {
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/course/courseDetail',
+        method: 'post',
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
 }
