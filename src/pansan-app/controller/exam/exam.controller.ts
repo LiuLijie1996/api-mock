@@ -95,7 +95,7 @@ export class ExamController {
     }, common.millisecond);
   }
 
-  // 考试考题
+  // 考试列表
   @All('getTestList')
   index5(@Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
@@ -139,6 +139,56 @@ export class ExamController {
         }
       });
     }, common.millisecond);
-    res.send({ code: 200 });
+
+    // res.send({ code: 200 });
+  }
+
+  // 获取专项练习列表
+  @All('exerciseSpecialtySelect')
+  index7(@Response() res, @Body() body, @Query() query) {
+    setTimeout(() => {
+      let options = {
+        url:
+          'http://192.168.0.8:88/index.php/v2/Practice/getAllQuestionItemList',
+        method: 'post',
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+      console.log(options.form);
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
+
+  // 获取专项练习列表中的题目
+  @All('getQuestionList')
+  index8(@Response() res, @Body() body, @Query() query) {
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/Practice/getQuestionList',
+        method: 'post',
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+      console.log(options.form);
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
   }
 }

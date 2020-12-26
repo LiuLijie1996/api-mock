@@ -50,4 +50,26 @@ export class ExerciseController {
       });
     }, common.millisecond);
   }
+
+  // 普通练习提交数据
+  @All('saveUserPractice')
+  index9(@Response() res, @Body() body, @Query() query) {
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/Practice/saveUserPractice',
+        method: 'post',
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
 }

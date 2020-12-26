@@ -47,4 +47,48 @@ export class UserController {
       });
     }, common.millisecond);
   }
+
+  // 添加咨询
+  @All('addUserService')
+  index3(@Response() res, @Body() body, @Query() query) {
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/user/addUserService',
+        method: 'post',
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
+
+  // 获取咨询详情
+  @All('getUserServiceReply')
+  index4(@Response() res, @Body() body, @Query() query) {
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/user/getUserServiceReply',
+        method: 'post',
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
 }
