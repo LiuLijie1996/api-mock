@@ -8,8 +8,9 @@ import { UserController } from './controller/user/user.controller';
 import { ErrorController } from './controller/error/error.controller';
 import { SearchController } from './controller/search/search.controller';
 import { UploadController } from './controller/upload/upload.controller';
+import { ScoreController } from './controller/score/score.controller';
 
 @Module({
-  controllers: [CourseController, ExamController, ExerciseController, IndexController, NewsController, UserController, ErrorController, SearchController, UploadController]
+  controllers: [CourseController, ExamController, ExerciseController, IndexController, NewsController, UserController, ErrorController, SearchController, UploadController, ScoreController]
 })
 export class PansanAppModule {}
