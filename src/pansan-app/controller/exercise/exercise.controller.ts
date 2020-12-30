@@ -54,6 +54,8 @@ export class ExerciseController {
   // 普通练习提交数据
   @All('saveUserPractice')
   index9(@Response() res, @Body() body, @Query() query) {
+    console.log('普通练习提交数据');
+
     setTimeout(() => {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/Practice/saveUserPractice',
@@ -63,6 +65,7 @@ export class ExerciseController {
           ...body,
         },
       };
+
       request(options, (err, req, body) => {
         try {
           res.send(JSON.parse(body));
