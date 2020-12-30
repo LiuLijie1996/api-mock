@@ -22,17 +22,23 @@ export class IndexController {
   // 轮播图
   @All('banner')
   index1(@Request() req, @Response() res, @Body() body, @Query() query) {
+    console.log(req.headers.token);
+
     setTimeout(() => {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/index/indexBanner',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...body,
           ...query,
         },
       };
       request(options, (err, req, body) => {
+        console.log(body);
+
         try {
           res.send(JSON.parse(body));
         } catch (error) {

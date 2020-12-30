@@ -23,7 +23,9 @@ export class CourseController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/course/courseList',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -45,7 +47,9 @@ export class CourseController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/course/getCourseItemList',
         method: 'get',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -67,7 +71,9 @@ export class CourseController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/course/courseDetail',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -89,7 +95,9 @@ export class CourseController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/course/courseProgress',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,

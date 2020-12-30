@@ -20,7 +20,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getTodayUserStudy',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -47,7 +49,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getUserServiceList',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -75,7 +79,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/addUserService',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -100,7 +106,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getUserServiceReply',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -125,7 +133,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getUserClass',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -150,7 +160,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getAttendDetail',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -178,7 +190,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getTimeTableList',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -206,7 +220,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/testRankList',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -234,7 +250,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getTestList',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -262,7 +280,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getUserCourseList',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -290,7 +310,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getUserErrQuestion',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -318,7 +340,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getQuestionCollect',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -346,7 +370,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getUserTestRecordList',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -374,7 +400,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getUserTestAnswerList',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -402,7 +430,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getOneTodayStudy',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -430,7 +460,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/saveTodayStudy',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -458,7 +490,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getUserCert',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -486,7 +520,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getUserMessage',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -514,7 +550,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/saveUserMessage',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -542,7 +580,9 @@ export class UserController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getOneMessage',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,

@@ -20,18 +20,22 @@ export class LoginController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/login/login',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...body,
           ...query,
         },
       };
-      console.log(options.form);
+      console.log(options.headers);
 
       request(options, (err, req, body) => {
         try {
           res.send(JSON.parse(body));
         } catch (error) {
+          console.log('报错了：', error);
+
           res.send(body);
         }
       });

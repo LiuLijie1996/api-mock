@@ -20,7 +20,9 @@ export class NewsController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/news/getIndexNewsList',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...body,
           ...query,
@@ -45,7 +47,9 @@ export class NewsController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/news/getNewsItemList',
         method: 'get',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...body,
           ...query,
@@ -70,7 +74,9 @@ export class NewsController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/news/newsList',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...body,
           ...query,
@@ -95,7 +101,9 @@ export class NewsController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/news/getNewsOne',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...body,
           ...query,
@@ -120,7 +128,9 @@ export class NewsController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/news/newsUserScore',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...body,
           ...query,
@@ -145,7 +155,9 @@ export class NewsController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/news/saveUserUpvote',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...body,
           ...query,
@@ -170,7 +182,9 @@ export class NewsController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/news/getNewsCollect',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...body,
           ...query,

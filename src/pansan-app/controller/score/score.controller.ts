@@ -20,7 +20,9 @@ export class ScoreController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getUserScoreList',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -45,7 +47,9 @@ export class ScoreController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/score/getScoreRule',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -70,7 +74,9 @@ export class ScoreController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/score/goodsList',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -95,7 +101,9 @@ export class ScoreController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/user/getUserScoreExchange',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -120,7 +128,9 @@ export class ScoreController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/score/userExchangeScore',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,

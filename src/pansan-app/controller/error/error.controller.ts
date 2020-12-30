@@ -13,7 +13,7 @@ export class ErrorController {
 
     setTimeout(() => {
       let options = {
-        url: '',
+        url: 'http://192.168.0.8:88/index.php/v2/base/saveErrorLog',
         method: 'post',
         form: {
           ...query,
@@ -21,18 +21,12 @@ export class ErrorController {
         },
       };
 
-      // request(options, (err, req, body) => {
-      //   try {
-      //     res.send(JSON.parse(body));
-      //   } catch (error) {
-      //     res.send(body);
-      //   }
-      // });
-
-      res.send({
-        code: 200,
-        msg: '提交成功',
-        data: options.form,
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
       });
     }, common.millisecond);
   }

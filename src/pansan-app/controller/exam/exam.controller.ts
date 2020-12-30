@@ -20,7 +20,9 @@ export class ExamController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/test/newKaoshi',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...body,
           ...query,
@@ -43,7 +45,9 @@ export class ExamController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/test/getTestItemList',
         method: 'get',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...body,
           ...query,
@@ -67,7 +71,9 @@ export class ExamController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/Practice/getPracticeItemList',
         method: 'get',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...body,
           ...query,
@@ -92,7 +98,9 @@ export class ExamController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/test/kaoTi',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -115,7 +123,9 @@ export class ExamController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/test/getTestList',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -140,7 +150,9 @@ export class ExamController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/test/saveUserTest',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -166,7 +178,9 @@ export class ExamController {
         url:
           'http://192.168.0.8:88/index.php/v2/Practice/getAllQuestionItemList',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
@@ -191,7 +205,9 @@ export class ExamController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/Practice/getQuestionList',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,

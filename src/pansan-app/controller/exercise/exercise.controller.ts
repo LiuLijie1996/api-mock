@@ -18,7 +18,9 @@ export class ExerciseController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/Practice/getPracticeList',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...body,
           ...query,
@@ -42,7 +44,9 @@ export class ExerciseController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/Practice/getOnePractice',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...body,
           ...query,
@@ -69,7 +73,9 @@ export class ExerciseController {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/Practice/saveUserPractice',
         method: 'post',
-        headers: req.headers,
+        headers: {
+          token: req.headers.token,
+        },
         form: {
           ...query,
           ...body,
