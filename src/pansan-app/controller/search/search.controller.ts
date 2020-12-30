@@ -1,17 +1,26 @@
 import common from '../common';
 import * as request from 'request';
 import * as Mock from 'mockjs';
-import { All, Body, Controller, Post, Query, Response } from '@nestjs/common';
+import {
+  All,
+  Body,
+  Controller,
+  Post,
+  Query,
+  Response,
+  Request,
+} from '@nestjs/common';
 
 @Controller('pansanApp/api/search')
 export class SearchController {
   // 联想词
   @All('associate')
-  index1(@Body() body, @Query() query, @Response() res) {
+  index1(@Request() req, @Body() body, @Query() query, @Response() res) {
     setTimeout(() => {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/course/courseList',
         method: 'post',
+        headers: req.headers,
         form: {
           ...body,
           ...query,
@@ -53,11 +62,12 @@ export class SearchController {
 
   // 关键词
   @All('antistop')
-  index2(@Body() body, @Query() query, @Response() res) {
+  index2(@Request() req, @Body() body, @Query() query, @Response() res) {
     setTimeout(() => {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/course/getCourseTags',
         method: 'get',
+        headers: req.headers,
         form: {
           ...body,
           ...query,

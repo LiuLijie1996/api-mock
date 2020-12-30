@@ -1,16 +1,24 @@
 import common from '../common';
-import { All, Body, Controller, Query, Response } from '@nestjs/common';
+import {
+  All,
+  Body,
+  Controller,
+  Query,
+  Response,
+  Request,
+} from '@nestjs/common';
 import * as request from 'request';
 
 @Controller('pansanApp/api/exercise')
 export class ExerciseController {
   // 练习列表
   @All('getPracticeList')
-  index5(@Response() res, @Body() body, @Query() query) {
+  index5(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/Practice/getPracticeList',
         method: 'post',
+        headers: req.headers,
         form: {
           ...body,
           ...query,
@@ -29,11 +37,12 @@ export class ExerciseController {
   }
   // 练习详情
   @All('getOnePractice')
-  index6(@Response() res, @Body() body, @Query() query) {
+  index6(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/Practice/getOnePractice',
         method: 'post',
+        headers: req.headers,
         form: {
           ...body,
           ...query,
@@ -53,13 +62,14 @@ export class ExerciseController {
 
   // 普通练习提交数据
   @All('saveUserPractice')
-  index9(@Response() res, @Body() body, @Query() query) {
+  index9(@Request() req, @Response() res, @Body() body, @Query() query) {
     console.log('普通练习提交数据');
 
     setTimeout(() => {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/Practice/saveUserPractice',
         method: 'post',
+        headers: req.headers,
         form: {
           ...query,
           ...body,

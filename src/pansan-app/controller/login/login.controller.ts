@@ -3,28 +3,22 @@ import {
   All,
   Body,
   Controller,
-  Post,
   Query,
-  Request,
   Response,
+  Request,
 } from '@nestjs/common';
 import * as request from 'request';
 
-@Controller('pansanApp/api/index')
-export class IndexController {
-  @Post()
-  index(@Body() body, @Query() query) {
-    console.log({ ...body, ...query });
-
-    return { ...body, ...query };
-  }
-
-  // 轮播图
-  @All('banner')
+@Controller('pansanApp/api/login')
+export class LoginController {
+  // 登录
+  @All('login')
   index1(@Request() req, @Response() res, @Body() body, @Query() query) {
+    console.log('登录');
+
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/index/indexBanner',
+        url: 'http://192.168.0.8:88/index.php/v2/login/login',
         method: 'post',
         headers: req.headers,
         form: {
@@ -32,6 +26,8 @@ export class IndexController {
           ...query,
         },
       };
+      console.log(options.form);
+
       request(options, (err, req, body) => {
         try {
           res.send(JSON.parse(body));

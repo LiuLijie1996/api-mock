@@ -1,18 +1,26 @@
 import common from '../common';
-import { All, Body, Controller, Query, Response } from '@nestjs/common';
+import {
+  All,
+  Body,
+  Controller,
+  Query,
+  Response,
+  Request,
+} from '@nestjs/common';
 import * as request from 'request';
 
 @Controller('pansanApp/api/exam')
 export class ExamController {
   // 最新考试
   @All('newKaoshi')
-  index1(@Response() res, @Body() body, @Query() query) {
+  index1(@Request() req, @Response() res, @Body() body, @Query() query) {
     console.log('最新考试');
 
     setTimeout(() => {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/test/newKaoshi',
         method: 'post',
+        headers: req.headers,
         form: {
           ...body,
           ...query,
@@ -30,11 +38,12 @@ export class ExamController {
 
   // 我要考试分类
   @All('getTestItemList')
-  index2(@Response() res, @Body() body, @Query() query) {
+  index2(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/test/getTestItemList',
         method: 'get',
+        headers: req.headers,
         form: {
           ...body,
           ...query,
@@ -53,11 +62,12 @@ export class ExamController {
 
   // 我要练习分类
   @All('getPracticeItemList')
-  index3(@Response() res, @Body() body, @Query() query) {
+  index3(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/Practice/getPracticeItemList',
         method: 'get',
+        headers: req.headers,
         form: {
           ...body,
           ...query,
@@ -75,13 +85,14 @@ export class ExamController {
 
   // 考试考题
   @All('kaoTi')
-  index4(@Response() res, @Body() body, @Query() query) {
+  index4(@Request() req, @Response() res, @Body() body, @Query() query) {
     console.log(body.type, body.id);
 
     setTimeout(() => {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/test/kaoTi',
         method: 'post',
+        headers: req.headers,
         form: {
           ...query,
           ...body,
@@ -99,11 +110,12 @@ export class ExamController {
 
   // 考试列表
   @All('getTestList')
-  index5(@Response() res, @Body() body, @Query() query) {
+  index5(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/test/getTestList',
         method: 'post',
+        headers: req.headers,
         form: {
           ...query,
           ...body,
@@ -121,13 +133,14 @@ export class ExamController {
 
   // 考试结束提交试卷
   @All('saveUserTest')
-  index6(@Response() res, @Body() body, @Query() query) {
+  index6(@Request() req, @Response() res, @Body() body, @Query() query) {
     console.log({ ...body, ...query });
 
     setTimeout(() => {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/test/saveUserTest',
         method: 'post',
+        headers: req.headers,
         form: {
           ...query,
           ...body,
@@ -147,12 +160,13 @@ export class ExamController {
 
   // 获取专项练习列表
   @All('exerciseSpecialtySelect')
-  index7(@Response() res, @Body() body, @Query() query) {
+  index7(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
         url:
           'http://192.168.0.8:88/index.php/v2/Practice/getAllQuestionItemList',
         method: 'post',
+        headers: req.headers,
         form: {
           ...query,
           ...body,
@@ -172,11 +186,12 @@ export class ExamController {
 
   // 获取专项练习列表中的题目
   @All('getQuestionList')
-  index8(@Response() res, @Body() body, @Query() query) {
+  index8(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/Practice/getQuestionList',
         method: 'post',
+        headers: req.headers,
         form: {
           ...query,
           ...body,
