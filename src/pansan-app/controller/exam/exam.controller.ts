@@ -7,6 +7,8 @@ export class ExamController {
   // 最新考试
   @All('newKaoshi')
   index1(@Response() res, @Body() body, @Query() query) {
+    console.log('最新考试');
+
     setTimeout(() => {
       let options = {
         url: 'http://192.168.0.8:88/index.php/v2/test/newKaoshi',

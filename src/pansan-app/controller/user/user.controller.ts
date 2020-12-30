@@ -371,4 +371,166 @@ export class UserController {
       });
     }, common.millisecond);
   }
+
+  // 一日一题详情
+  @All('getOneTodayStudy')
+  index15(@Response() res, @Body() body, @Query() query) {
+    console.log('一日一题详情');
+
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/user/getOneTodayStudy',
+        method: 'post',
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+
+      console.log(options.form);
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
+
+  // 一日一题阅读完成
+  @All('saveTodayStudy')
+  index16(@Response() res, @Body() body, @Query() query) {
+    console.log('一日一题阅读完成');
+
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/user/saveTodayStudy',
+        method: 'post',
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+
+      console.log(options.form);
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
+
+  // 证书详情
+  @All('getUserCert')
+  index17(@Response() res, @Body() body, @Query() query) {
+    console.log('证书详情');
+
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/user/getUserCert',
+        method: 'post',
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+
+      console.log(options.form);
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
+
+  // 通知公告
+  @All('getUserMessage')
+  index18(@Response() res, @Body() body, @Query() query) {
+    console.log('通知公告');
+
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/user/getUserMessage',
+        method: 'post',
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+
+      console.log(options.form);
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
+
+  // 发送已读通知公告
+  @All('saveUserMessage')
+  index19(@Response() res, @Body() body, @Query() query) {
+    console.log('发送已读通知公告');
+
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/user/saveUserMessage',
+        method: 'post',
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+
+      console.log(options.form);
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
+
+  // 公告详情
+  @All('getOneMessage')
+  index20(@Response() res, @Body() body, @Query() query) {
+    console.log('公告详情');
+
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/user/getOneMessage',
+        method: 'post',
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+
+      console.log(options.form);
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
 }
