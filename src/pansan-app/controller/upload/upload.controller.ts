@@ -1,12 +1,18 @@
 import { resolve } from 'path';
 import { createWriteStream } from 'fs';
+import common from '../common';
+import * as request from 'request';
+
 import {
   Controller,
-  Post,
   UploadedFile,
   UploadedFiles,
   UseInterceptors,
+  Post,
+  Query,
   Request,
+  Response,
+  Body,
 } from '@nestjs/common';
 import { AnyFilesInterceptor } from '@nestjs/platform-express';
 
@@ -14,15 +20,36 @@ import { AnyFilesInterceptor } from '@nestjs/platform-express';
 export class UploadController {
   @Post()
   @UseInterceptors(AnyFilesInterceptor())
-  index1(@UploadedFiles() files) {
-    files.forEach((file) => {
-      this.saveFile(file);
-    });
+  index1(@UploadedFiles() files, @Request() req, @Response() res) {
+    // files.forEach((file) => {
+    //   this.saveFile(file);
+    // });
 
-    return {
-      code: 200,
-      msg: '上传成功',
-    };
+    // return {
+    //   code: 200,
+    //   msg: '上传成功',
+    // };
+
+    console.log(files[0]);
+
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/upload/uploadImg',
+        method: 'post',
+        headers: {
+          token: req.headers.token,
+        },
+        formData: files[0],
+      };
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
   }
 
   // 保存文件

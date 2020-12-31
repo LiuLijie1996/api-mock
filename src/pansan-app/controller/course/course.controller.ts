@@ -24,7 +24,7 @@ export class CourseController {
         url: 'http://192.168.0.8:88/index.php/v2/course/courseList',
         method: 'post',
         headers: {
-          token: req.headers.token,
+          token: req.headers.token || '0dcae1ce7e4d0db4d6266f7d354b12fa',
         },
         form: {
           ...query,

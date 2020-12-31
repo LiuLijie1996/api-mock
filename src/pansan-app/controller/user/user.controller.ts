@@ -304,7 +304,7 @@ export class UserController {
   // 获取我的错题
   @All('getUserErrQuestion')
   index11(@Request() req, @Response() res, @Body() body, @Query() query) {
-    console.log('获取我的错题');
+    console.log('获取我的错题', req.headers.token);
 
     setTimeout(() => {
       let options = {
@@ -319,12 +319,14 @@ export class UserController {
         },
       };
 
-      console.log(options.form);
+      console.log(options.headers);
 
       request(options, (err, req, body) => {
         try {
           res.send(JSON.parse(body));
         } catch (error) {
+          console.log(body);
+
           res.send(body);
         }
       });
