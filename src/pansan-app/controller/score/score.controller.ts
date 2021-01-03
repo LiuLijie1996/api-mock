@@ -28,6 +28,8 @@ export class ScoreController {
           ...body,
         },
       };
+      console.log(options);
+
       request(options, (err, req, body) => {
         try {
           res.send(JSON.parse(body));

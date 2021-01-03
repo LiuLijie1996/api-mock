@@ -224,4 +224,58 @@ export class ExamController {
       });
     }, common.millisecond);
   }
+
+  // 题目纠错
+  @All('saveeErrorCorrection')
+  index9(@Request() req, @Response() res, @Body() body, @Query() query) {
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/user/saveeErrorCorrection',
+        method: 'post',
+        headers: {
+          token: req.headers.token,
+        },
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+      console.log(options.form);
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
+
+  // 题目收藏
+  @All('addQuestionCollect')
+  index10(@Request() req, @Response() res, @Body() body, @Query() query) {
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/user/addQuestionCollect',
+        method: 'post',
+        headers: {
+          token: req.headers.token,
+        },
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+      console.log(options);
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
 }

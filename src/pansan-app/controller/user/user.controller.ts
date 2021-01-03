@@ -602,4 +602,124 @@ export class UserController {
       });
     }, common.millisecond);
   }
+
+  // 扫码加入班级
+  @All('userAddClass')
+  index21(@Request() req, @Response() res, @Body() body, @Query() query) {
+    console.log('扫码加入班级');
+
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/user/userAddClass',
+        method: 'post',
+        headers: {
+          token: req.headers.token,
+        },
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+
+      console.log(options);
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
+
+  // 真正的加入班级请求
+  @All('addClass')
+  index22(@Request() req, @Response() res, @Body() body, @Query() query) {
+    console.log('真正的加入班级请求');
+
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/user/addClass',
+        method: 'post',
+        headers: {
+          token: req.headers.token,
+        },
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+
+      console.log(options);
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
+
+  // 签到
+  @All('signClass')
+  index23(@Request() req, @Response() res, @Body() body, @Query() query) {
+    console.log('签到');
+
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/user/signClass',
+        method: 'post',
+        headers: {
+          token: req.headers.token,
+        },
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+
+      console.log(options);
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
+
+  // 签到
+  @All('getuserScoreTotal')
+  index24(@Request() req, @Response() res, @Body() body, @Query() query) {
+    console.log('签到');
+
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/user/getuserScoreTotal',
+        method: 'post',
+        headers: {
+          token: req.headers.token,
+        },
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+
+      console.log(options);
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
 }

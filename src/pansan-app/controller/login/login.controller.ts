@@ -21,16 +21,18 @@ export class LoginController {
         url: 'http://192.168.0.8:88/index.php/v2/login/login',
         method: 'post',
         headers: {
-          token: req.headers.token,
+          token: null,
         },
         form: {
           ...body,
           ...query,
         },
       };
-      console.log(options.headers);
+      console.log(options);
 
       request(options, (err, req, body) => {
+        console.log(body);
+
         try {
           res.send(JSON.parse(body));
         } catch (error) {

@@ -205,4 +205,37 @@ export class NewsController {
       });
     }, common.millisecond);
   }
+
+  // 收藏新闻
+  @All('addNewsCollect')
+  index8(@Request() req, @Response() res, @Body() body, @Query() query) {
+    console.log('收藏新闻');
+
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/news/addNewsCollect',
+        method: 'post',
+        headers: {
+          token: req.headers.token,
+        },
+        form: {
+          ...body,
+          ...query,
+        },
+        qs: {
+          ...body,
+          ...query,
+        },
+      };
+      console.log(options.form);
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
 }
