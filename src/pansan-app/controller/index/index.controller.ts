@@ -47,4 +47,35 @@ export class IndexController {
       });
     }, common.millisecond);
   }
+
+  // 检查更新
+  @All('version')
+  index2(@Request() req, @Response() res, @Body() body, @Query() query) {
+    console.log('检查更新');
+
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/login/version',
+        method: 'post',
+        headers: {
+          token: req.headers.token,
+          versionCode: req.headers.versioncode,
+        },
+        form: {
+          ...body,
+          ...query,
+        },
+      };
+
+      console.log(options);
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
 }

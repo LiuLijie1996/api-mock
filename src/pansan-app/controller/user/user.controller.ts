@@ -722,4 +722,34 @@ export class UserController {
       });
     }, common.millisecond);
   }
+
+  // 修改密码
+  @All('editPassWord')
+  index25(@Request() req, @Response() res, @Body() body, @Query() query) {
+    console.log('修改密码');
+
+    setTimeout(() => {
+      let options = {
+        url: 'http://192.168.0.8:88/index.php/v2/user/editPassWord',
+        method: 'post',
+        headers: {
+          token: req.headers.token,
+        },
+        form: {
+          ...query,
+          ...body,
+        },
+      };
+
+      console.log(options);
+
+      request(options, (err, req, body) => {
+        try {
+          res.send(JSON.parse(body));
+        } catch (error) {
+          res.send(body);
+        }
+      });
+    }, common.millisecond);
+  }
 }
