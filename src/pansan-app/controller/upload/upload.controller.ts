@@ -34,7 +34,7 @@ export class UploadController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/upload/uploadImg',
+        url: 'http://192.168.0.8:88/index.php/appApi/upload/uploadImg',
         method: 'post',
         headers: {
           token: req.headers.token,

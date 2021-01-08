@@ -13,14 +13,9 @@ import {
 export class ErrorController {
   @All()
   index1(@Request() req, @Response() res, @Body() body, @Query() query) {
-    console.log({
-      ...query,
-      ...body,
-    });
-
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/base/saveErrorLog',
+        url: 'http://192.168.0.8:88/index.php/appApi/base/saveErrorLog',
         method: 'post',
         headers: {
           token: req.headers.token,

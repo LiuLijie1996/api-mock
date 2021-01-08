@@ -18,16 +18,19 @@ export class ExamController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/test/newKaoshi',
+        url: 'http://192.168.0.8:88/index.php/appApi/test/newKaoshi',
         method: 'post',
         headers: {
           token: req.headers.token,
+          versionCode: req.headers.versioncode,
         },
         form: {
           ...body,
           ...query,
         },
       };
+      console.log(options);
+
       request(options, (err, req, body) => {
         try {
           res.send(JSON.parse(body));
@@ -43,10 +46,11 @@ export class ExamController {
   index2(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/test/getTestItemList',
+        url: 'http://192.168.0.8:88/index.php/appApi/test/getTestItemList',
         method: 'get',
         headers: {
           token: req.headers.token,
+          versionCode: req.headers.versioncode,
         },
         form: {
           ...body,
@@ -69,10 +73,12 @@ export class ExamController {
   index3(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/Practice/getPracticeItemList',
+        url:
+          'http://192.168.0.8:88/index.php/appApi/Practice/getPracticeItemList',
         method: 'get',
         headers: {
           token: req.headers.token,
+          versionCode: req.headers.versioncode,
         },
         form: {
           ...body,
@@ -92,21 +98,27 @@ export class ExamController {
   // 考试考题
   @All('kaoTi')
   index4(@Request() req, @Response() res, @Body() body, @Query() query) {
-    console.log(body.type, body.id);
-
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/test/kaoTi',
+        url: 'http://192.168.0.8:88/index.php/appApi/test/kaoTi',
         method: 'post',
         headers: {
           token: req.headers.token,
+          versionCode: req.headers.versioncode,
         },
         form: {
           ...query,
           ...body,
         },
       };
+      console.log('考试考题', options);
+
       request(options, (err, req, body) => {
+        console.log(JSON.parse(body));
+        let data = JSON.parse(body).data;
+        delete data.list;
+        console.log(data);
+
         try {
           res.send(JSON.parse(body));
         } catch (error) {
@@ -121,10 +133,11 @@ export class ExamController {
   index5(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/test/getTestList',
+        url: 'http://192.168.0.8:88/index.php/appApi/test/getTestList',
         method: 'post',
         headers: {
           token: req.headers.token,
+          versionCode: req.headers.versioncode,
         },
         form: {
           ...query,
@@ -132,6 +145,8 @@ export class ExamController {
         },
       };
       request(options, (err, req, body) => {
+        console.log(JSON.parse(body));
+
         try {
           res.send(JSON.parse(body));
         } catch (error) {
@@ -144,14 +159,13 @@ export class ExamController {
   // 考试结束提交试卷
   @All('saveUserTest')
   index6(@Request() req, @Response() res, @Body() body, @Query() query) {
-    console.log({ ...body, ...query });
-
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/test/saveUserTest',
+        url: 'http://192.168.0.8:88/index.php/appApi/test/saveUserTest',
         method: 'post',
         headers: {
           token: req.headers.token,
+          versionCode: req.headers.versioncode,
         },
         form: {
           ...query,
@@ -176,17 +190,17 @@ export class ExamController {
     setTimeout(() => {
       let options = {
         url:
-          'http://192.168.0.8:88/index.php/v2/Practice/getAllQuestionItemList',
+          'http://192.168.0.8:88/index.php/appApi/Practice/getAllQuestionItemList',
         method: 'post',
         headers: {
           token: req.headers.token,
+          versionCode: req.headers.versioncode,
         },
         form: {
           ...query,
           ...body,
         },
       };
-      console.log(options.form);
 
       request(options, (err, req, body) => {
         try {
@@ -203,17 +217,17 @@ export class ExamController {
   index8(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/Practice/getQuestionList',
+        url: 'http://192.168.0.8:88/index.php/appApi/Practice/getQuestionList',
         method: 'post',
         headers: {
           token: req.headers.token,
+          versionCode: req.headers.versioncode,
         },
         form: {
           ...query,
           ...body,
         },
       };
-      console.log(options.form);
 
       request(options, (err, req, body) => {
         try {
@@ -230,17 +244,17 @@ export class ExamController {
   index9(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/saveeErrorCorrection',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/saveeErrorCorrection',
         method: 'post',
         headers: {
           token: req.headers.token,
+          versionCode: req.headers.versioncode,
         },
         form: {
           ...query,
           ...body,
         },
       };
-      console.log(options.form);
 
       request(options, (err, req, body) => {
         try {
@@ -257,17 +271,17 @@ export class ExamController {
   index10(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/addQuestionCollect',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/addQuestionCollect',
         method: 'post',
         headers: {
           token: req.headers.token,
+          versionCode: req.headers.versioncode,
         },
         form: {
           ...query,
           ...body,
         },
       };
-      console.log(options);
 
       request(options, (err, req, body) => {
         try {

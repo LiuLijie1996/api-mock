@@ -18,7 +18,7 @@ export class LoginController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/login/login',
+        url: 'http://192.168.0.8:88/index.php/appApi/login/login',
         method: 'post',
         headers: {
           token: null,
@@ -51,7 +51,7 @@ export class LoginController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/login/register',
+        url: 'http://192.168.0.8:88/index.php/appApi/login/register',
         method: 'post',
         headers: {
           token: null,
@@ -84,7 +84,7 @@ export class LoginController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/login/code',
+        url: 'http://192.168.0.8:88/index.php/appApi/login/code',
         method: 'post',
         headers: {
           token: null,

@@ -14,7 +14,7 @@ import * as request from 'request';
 export class IndexController {
   @Post()
   index(@Body() body, @Query() query) {
-    console.log({ ...body, ...query });
+    console.log('/api/index接口数据', { ...body, ...query });
 
     return { ...body, ...query };
   }
@@ -22,13 +22,12 @@ export class IndexController {
   // 轮播图
   @All('banner')
   index1(@Request() req, @Response() res, @Body() body, @Query() query) {
-    console.log(req.headers.token);
-
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/index/indexBanner',
+        url: 'http://192.168.0.8:88/index.php/appApi/index/indexBanner',
         method: 'post',
         headers: {
+          versionCode: req.headers.versioncode,
           token: req.headers.token,
         },
         form: {
@@ -36,9 +35,9 @@ export class IndexController {
           ...query,
         },
       };
-      request(options, (err, req, body) => {
-        console.log(body);
+      console.log('轮播图', options);
 
+      request(options, (err, req, body) => {
         try {
           res.send(JSON.parse(body));
         } catch (error) {
@@ -51,11 +50,9 @@ export class IndexController {
   // 检查更新
   @All('version')
   index2(@Request() req, @Response() res, @Body() body, @Query() query) {
-    console.log('检查更新');
-
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/login/version',
+        url: 'http://192.168.0.8:88/index.php/appApi/login/version',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -66,8 +63,6 @@ export class IndexController {
           ...query,
         },
       };
-
-      console.log(options);
 
       request(options, (err, req, body) => {
         try {

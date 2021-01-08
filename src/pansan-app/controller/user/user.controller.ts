@@ -18,7 +18,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getTodayUserStudy',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/getTodayUserStudy',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -47,7 +47,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getUserServiceList',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/getUserServiceList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -77,7 +77,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/addUserService',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/addUserService',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -104,7 +104,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getUserServiceReply',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/getUserServiceReply',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -131,7 +131,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getUserClass',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/getUserClass',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -158,7 +158,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getAttendDetail',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/getAttendDetail',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -188,7 +188,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getTimeTableList',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/getTimeTableList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -218,18 +218,17 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/testRankList',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/testRankList',
         method: 'post',
         headers: {
           token: req.headers.token,
+          versionCode: req.headers.versioncode,
         },
         form: {
           ...query,
           ...body,
         },
       };
-
-      console.log(options.form);
 
       request(options, (err, req, body) => {
         try {
@@ -248,14 +247,14 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getTestList',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/getTestList',
         method: 'post',
-        headers: {
-          token: req.headers.token,
-        },
+        headers: { token: '5e80dabd1caa00b0e82b15efacc051c1', versionCode: 1 },
         form: {
-          ...query,
-          ...body,
+          id: 2,
+          nonce: 'Si7wFM',
+          t: 1610094915365,
+          sign: '8FE80276BEECFC056481BE64F0B6ABF9',
         },
       };
 
@@ -278,7 +277,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getUserCourseList',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/getUserCourseList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -308,7 +307,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getUserErrQuestion',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/getUserErrQuestion',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -340,7 +339,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getQuestionCollect',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/getQuestionCollect',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -370,7 +369,8 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getUserTestRecordList',
+        url:
+          'http://192.168.0.8:88/index.php/appApi/user/getUserTestRecordList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -400,7 +400,8 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getUserTestAnswerList',
+        url:
+          'http://192.168.0.8:88/index.php/appApi/user/getUserTestAnswerList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -426,11 +427,9 @@ export class UserController {
   // 一日一题详情
   @All('getOneTodayStudy')
   index15(@Request() req, @Response() res, @Body() body, @Query() query) {
-    console.log('一日一题详情');
-
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getOneTodayStudy',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/getOneTodayStudy',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -444,6 +443,8 @@ export class UserController {
       console.log(options.form);
 
       request(options, (err, req, body) => {
+        console.log('一日一题详情', body);
+
         try {
           res.send(JSON.parse(body));
         } catch (error) {
@@ -456,11 +457,9 @@ export class UserController {
   // 一日一题阅读完成
   @All('saveTodayStudy')
   index16(@Request() req, @Response() res, @Body() body, @Query() query) {
-    console.log('一日一题阅读完成');
-
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/saveTodayStudy',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/saveTodayStudy',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -474,6 +473,8 @@ export class UserController {
       console.log(options.form);
 
       request(options, (err, req, body) => {
+        console.log('一日一题阅读完成', body);
+
         try {
           res.send(JSON.parse(body));
         } catch (error) {
@@ -490,7 +491,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getUserCert',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/getUserCert',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -520,7 +521,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getUserMessage',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/getUserMessage',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -550,7 +551,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/saveUserMessage',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/saveUserMessage',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -580,7 +581,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getOneMessage',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/getOneMessage',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -610,7 +611,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/userAddClass',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/userAddClass',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -640,7 +641,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/addClass',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/addClass',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -670,7 +671,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/signClass',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/signClass',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -693,14 +694,14 @@ export class UserController {
     }, common.millisecond);
   }
 
-  // 签到
+  // 获取用户总积分
   @All('getuserScoreTotal')
   index24(@Request() req, @Response() res, @Body() body, @Query() query) {
-    console.log('签到');
+    console.log('获取用户总积分');
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getuserScoreTotal',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/getuserScoreTotal',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -730,7 +731,7 @@ export class UserController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/editPassWord',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/editPassWord',
         method: 'post',
         headers: {
           token: req.headers.token,

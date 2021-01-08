@@ -14,14 +14,9 @@ export class CourseController {
   // 最新课程
   @All('courseList')
   index1(@Request() req, @Response() res, @Body() body, @Query() query) {
-    console.log({
-      ...query,
-      ...body,
-    });
-
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/course/courseList',
+        url: 'http://192.168.0.8:88/index.php/appApi/course/courseList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -31,6 +26,8 @@ export class CourseController {
           ...body,
         },
       };
+      console.log(options);
+
       request(options, (err, req, body) => {
         try {
           res.send(JSON.parse(body));
@@ -45,7 +42,7 @@ export class CourseController {
   index2(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/course/getCourseItemList',
+        url: 'http://192.168.0.8:88/index.php/appApi/course/getCourseItemList',
         method: 'get',
         headers: {
           token: req.headers.token,
@@ -69,7 +66,7 @@ export class CourseController {
   index3(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/course/courseDetail',
+        url: 'http://192.168.0.8:88/index.php/appApi/course/courseDetail',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -94,7 +91,7 @@ export class CourseController {
   index4(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/course/courseProgress',
+        url: 'http://192.168.0.8:88/index.php/appApi/course/courseProgress',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -104,9 +101,12 @@ export class CourseController {
           ...body,
         },
       };
-      console.log(options.form);
+
+      console.log('课程阅读完成', options);
 
       request(options, (err, req, body) => {
+        console.log('课程阅读完成', body);
+
         try {
           res.send(JSON.parse(body));
         } catch (error) {
@@ -119,25 +119,9 @@ export class CourseController {
   // 完成情况
   @All('courseSituation')
   index5(@Request() req, @Response() res, @Body() body, @Query() query) {
-    console.log('完成情况');
-
     setTimeout(() => {
-      // let options = {
-      //   url: 'http://192.168.0.8:88/index.php/v2/course/courseSituation',
-      //   method: 'post',
-      //   headers: { token: '5e80dabd1caa00b0e82b15efacc051c1' },
-      //   form: {
-      //     id: 158,
-      //     page: 1,
-      //     psize: 20,
-      //     nonce: 'YShJSh',
-      //     t: 1609643510419,
-      //     sign: '2BC3B4CE8E543F05341555A9425697FC',
-      //   },
-      // };
-
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/course/courseSituation',
+        url: 'http://192.168.0.8:88/index.php/appApi/course/courseSituation',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -147,7 +131,6 @@ export class CourseController {
           ...body,
         },
       };
-      console.log(options);
 
       request(options, (err, req, body) => {
         try {

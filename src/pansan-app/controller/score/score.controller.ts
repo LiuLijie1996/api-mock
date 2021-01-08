@@ -18,7 +18,7 @@ export class ScoreController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getUserScoreList',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/getUserScoreList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -47,7 +47,7 @@ export class ScoreController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/score/getScoreRule',
+        url: 'http://192.168.0.8:88/index.php/appApi/score/getScoreRule',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -74,7 +74,7 @@ export class ScoreController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/score/goodsList',
+        url: 'http://192.168.0.8:88/index.php/appApi/score/goodsList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -101,7 +101,7 @@ export class ScoreController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/user/getUserScoreExchange',
+        url: 'http://192.168.0.8:88/index.php/appApi/user/getUserScoreExchange',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -128,7 +128,7 @@ export class ScoreController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/v2/score/userExchangeScore',
+        url: 'http://192.168.0.8:88/index.php/appApi/score/userExchangeScore',
         method: 'post',
         headers: {
           token: req.headers.token,
