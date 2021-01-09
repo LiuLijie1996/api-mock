@@ -18,7 +18,7 @@ export class NewsController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/news/getIndexNewsList',
+        url: common.normal + '/news/getIndexNewsList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -45,7 +45,7 @@ export class NewsController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/news/getNewsItemList',
+        url: common.normal + '/news/getNewsItemList',
         method: 'get',
         headers: {
           token: req.headers.token,
@@ -72,7 +72,7 @@ export class NewsController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/news/newsList',
+        url: common.normal + '/news/newsList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -99,14 +99,14 @@ export class NewsController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/news/getNewsOne',
+        url: common.normal + '/news/getNewsOne',
         method: 'post',
-        headers: {
-          token: req.headers.token,
-        },
+        headers: { token: '5e80dabd1caa00b0e82b15efacc051c1', versionCode: 1 },
         form: {
-          ...body,
-          ...query,
+          id: 180,
+          nonce: 'AZBzCN',
+          t: 1610181119378,
+          sign: '45A0B4FEDB8E45D4A3772D9B13A55F7C',
         },
       };
       request(options, (err, req, body) => {
@@ -126,7 +126,7 @@ export class NewsController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/news/newsUserScore',
+        url: common.normal + '/news/newsUserScore',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -153,7 +153,7 @@ export class NewsController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/news/saveUserUpvote',
+        url: common.normal + '/news/saveUserUpvote',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -180,7 +180,7 @@ export class NewsController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/news/getNewsCollect',
+        url: common.normal + '/news/getNewsCollect',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -213,7 +213,7 @@ export class NewsController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/news/addNewsCollect',
+        url: common.normal + '/news/addNewsCollect',
         method: 'post',
         headers: {
           token: req.headers.token,

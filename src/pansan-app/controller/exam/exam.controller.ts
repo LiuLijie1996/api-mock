@@ -18,7 +18,7 @@ export class ExamController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/test/newKaoshi',
+        url: common.normal + '/test/newKaoshi',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -46,7 +46,7 @@ export class ExamController {
   index2(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/test/getTestItemList',
+        url: common.normal + '/test/getTestItemList',
         method: 'get',
         headers: {
           token: req.headers.token,
@@ -73,8 +73,7 @@ export class ExamController {
   index3(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url:
-          'http://192.168.0.8:88/index.php/appApi/Practice/getPracticeItemList',
+        url: common.normal + '/Practice/getPracticeItemList',
         method: 'get',
         headers: {
           token: req.headers.token,
@@ -100,25 +99,21 @@ export class ExamController {
   index4(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/test/kaoTi',
+        url: common.normal + '/test/kaoTi',
         method: 'post',
-        headers: {
-          token: req.headers.token,
-          versionCode: req.headers.versioncode,
-        },
+        headers: { token: '5e80dabd1caa00b0e82b15efacc051c1', versionCode: 1 },
         form: {
-          ...query,
-          ...body,
+          user_id: 5019,
+          id: 256,
+          type: 2,
+          nonce: 'ttB6mf',
+          t: 1610183400585,
+          sign: 'B863A8CCBF4F55936DBA05B9899827BF',
         },
       };
       console.log('考试考题', options);
 
       request(options, (err, req, body) => {
-        console.log(JSON.parse(body));
-        let data = JSON.parse(body).data;
-        delete data.list;
-        console.log(data);
-
         try {
           res.send(JSON.parse(body));
         } catch (error) {
@@ -133,7 +128,7 @@ export class ExamController {
   index5(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/test/getTestList',
+        url: common.normal + '/test/getTestList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -161,7 +156,7 @@ export class ExamController {
   index6(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/test/saveUserTest',
+        url: common.normal + '/test/saveUserTest',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -189,8 +184,7 @@ export class ExamController {
   index7(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url:
-          'http://192.168.0.8:88/index.php/appApi/Practice/getAllQuestionItemList',
+        url: common.normal + '/Practice/getAllQuestionItemList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -217,7 +211,7 @@ export class ExamController {
   index8(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/Practice/getQuestionList',
+        url: common.normal + '/Practice/getQuestionList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -244,7 +238,7 @@ export class ExamController {
   index9(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/user/saveeErrorCorrection',
+        url: common.normal + '/user/saveeErrorCorrection',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -271,7 +265,7 @@ export class ExamController {
   index10(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/user/addQuestionCollect',
+        url: common.normal + '/user/addQuestionCollect',
         method: 'post',
         headers: {
           token: req.headers.token,

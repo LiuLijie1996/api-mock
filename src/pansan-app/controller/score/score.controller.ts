@@ -18,7 +18,7 @@ export class ScoreController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/user/getUserScoreList',
+        url: common.normal + '/user/getUserScoreList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -47,14 +47,13 @@ export class ScoreController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/score/getScoreRule',
+        url: common.normal + '/score/getScoreRule',
         method: 'post',
-        headers: {
-          token: req.headers.token,
-        },
+        headers: { token: '5e80dabd1caa00b0e82b15efacc051c1', versionCode: 1 },
         form: {
-          ...query,
-          ...body,
+          nonce: 'iNAZZB',
+          t: 1610177810679,
+          sign: 'FA2D35DD22EE51B905172014F282F319',
         },
       };
       request(options, (err, req, body) => {
@@ -74,7 +73,7 @@ export class ScoreController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/score/goodsList',
+        url: common.normal + '/score/goodsList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -101,7 +100,7 @@ export class ScoreController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/user/getUserScoreExchange',
+        url: common.normal + '/user/getUserScoreExchange',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -128,7 +127,7 @@ export class ScoreController {
 
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/score/userExchangeScore',
+        url: common.normal + '/score/userExchangeScore',
         method: 'post',
         headers: {
           token: req.headers.token,

@@ -18,7 +18,7 @@ export class SearchController {
   index1(@Request() req, @Body() body, @Query() query, @Response() res) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/course/courseList',
+        url: common.normal + '/course/courseList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -67,7 +67,7 @@ export class SearchController {
   index2(@Request() req, @Body() body, @Query() query, @Response() res) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/course/getCourseTags',
+        url: common.normal + '/course/getCourseTags',
         method: 'get',
         headers: {
           token: req.headers.token,

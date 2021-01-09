@@ -16,7 +16,7 @@ export class ExerciseController {
   index5(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/Practice/getPracticeList',
+        url: common.normal + '/Practice/getPracticeList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -41,7 +41,7 @@ export class ExerciseController {
   index6(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/Practice/getOnePractice',
+        url: common.normal + '/Practice/getOnePractice',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -67,7 +67,7 @@ export class ExerciseController {
   index9(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/Practice/saveUserPractice',
+        url: common.normal + '/Practice/saveUserPractice',
         method: 'post',
         headers: {
           token: req.headers.token,

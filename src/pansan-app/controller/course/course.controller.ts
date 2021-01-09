@@ -16,7 +16,7 @@ export class CourseController {
   index1(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/course/courseList',
+        url: common.normal + '/course/courseList',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -42,7 +42,7 @@ export class CourseController {
   index2(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/course/getCourseItemList',
+        url: common.normal + '/course/getCourseItemList',
         method: 'get',
         headers: {
           token: req.headers.token,
@@ -66,7 +66,7 @@ export class CourseController {
   index3(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/course/courseDetail',
+        url: common.normal + '/course/courseDetail',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -91,7 +91,7 @@ export class CourseController {
   index4(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/course/courseProgress',
+        url: common.normal + '/course/courseProgress',
         method: 'post',
         headers: {
           token: req.headers.token,
@@ -121,7 +121,7 @@ export class CourseController {
   index5(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/course/courseSituation',
+        url: common.normal + '/course/courseSituation',
         method: 'post',
         headers: {
           token: req.headers.token,

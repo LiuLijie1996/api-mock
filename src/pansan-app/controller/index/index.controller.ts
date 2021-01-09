@@ -24,7 +24,7 @@ export class IndexController {
   index1(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/index/indexBanner',
+        url: common.normal + '/index/indexBanner',
         method: 'post',
         headers: {
           versionCode: req.headers.versioncode,
@@ -52,7 +52,7 @@ export class IndexController {
   index2(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/login/version',
+        url: common.normal + '/login/version',
         method: 'post',
         headers: {
           token: req.headers.token,

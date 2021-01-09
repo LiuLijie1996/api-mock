@@ -15,7 +15,7 @@ export class ErrorController {
   index1(@Request() req, @Response() res, @Body() body, @Query() query) {
     setTimeout(() => {
       let options = {
-        url: 'http://192.168.0.8:88/index.php/appApi/base/saveErrorLog',
+        url: common.normal + '/base/saveErrorLog',
         method: 'post',
         headers: {
           token: req.headers.token,
