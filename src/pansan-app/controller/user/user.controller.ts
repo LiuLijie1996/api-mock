@@ -401,12 +401,14 @@ export class UserController {
       let options = {
         url: common.normal + '/user/getUserTestAnswerList',
         method: 'post',
-        headers: {
-          token: req.headers.token,
-        },
+        headers: { token: '5e80dabd1caa00b0e82b15efacc051c1', versionCode: 1 },
         form: {
-          ...query,
-          ...body,
+          user_id: 5019,
+          test_id: 256,
+          test_type: 2,
+          nonce: 'wESjFK',
+          t: 1610336452054,
+          sign: 'C6C89E542FDCEA9DD9BA6B9F48B59ADD',
         },
       };
 
